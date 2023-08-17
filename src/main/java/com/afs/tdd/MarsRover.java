@@ -29,46 +29,44 @@ public class MarsRover {
 
     public void executeCommandLeft() {
         Direction currentDirection = location.getDirection();
-        Direction newDirection = null;
 
         switch (currentDirection) {
             case NORTH:
-                newDirection = Direction.WEST;
+                currentDirection = Direction.WEST;
                 break;
             case SOUTH:
-                newDirection = Direction.EAST;
+                currentDirection = Direction.EAST;
                 break;
             case EAST:
-                newDirection = Direction.NORTH;
+                currentDirection = Direction.NORTH;
                 break;
             case WEST:
-                newDirection = Direction.SOUTH;
+                currentDirection = Direction.SOUTH;
                 break;
         }
 
-        location.setDirection(newDirection);
+        location.setDirection(currentDirection);
     }
 
     public void executeCommandRight() {
         Direction currentDirection = location.getDirection();
-        Direction newDirection = null;
 
         switch (currentDirection) {
             case NORTH:
-                newDirection = Direction.EAST;
+                currentDirection = Direction.EAST;
                 break;
             case SOUTH:
-                newDirection = Direction.WEST;
+                currentDirection = Direction.WEST;
                 break;
             case EAST:
-                newDirection = Direction.SOUTH;
+                currentDirection = Direction.SOUTH;
                 break;
             case WEST:
-                newDirection = Direction.NORTH;
+                currentDirection = Direction.NORTH;
                 break;
         }
 
-        location.setDirection(newDirection);
+        location.setDirection(currentDirection);
     }
 
     public Location getCurrentLocation() {
