@@ -1,13 +1,29 @@
 package com.afs.tdd;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class MarsRover {
 
     private Location location;
+    private List<String> locations;
 
     public MarsRover(Location location) {
         this.location = location;
     }
-
+    public void executeBatchCommands(String commands) {
+        List<String> commandList = Arrays.asList(commands.split(","));
+        commandList.forEach(command -> {
+            if(command.equals("MOVE")) {
+                executeCommandMove();
+            } else if (command.equals("LEFT")) {
+                executeCommandLeft();
+            } else if (command.equals("RIGHT")) {
+                executeCommandRight();
+            }
+        });
+    }
     public void executeCommandMove() {
         Direction direction = location.getDirection();
 

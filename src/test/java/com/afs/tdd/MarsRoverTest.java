@@ -4,12 +4,15 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class MarsRoverTest {
+    private String move = "MOVE";
+    private String left = "LEFT";
+    private String right = "RIGHT";
     @Test
     void should_change_to_location_0_1_N_when_executeCommand_given_0_0_North_and_command_Move() {
         // Given
         Location initialLocation = new Location(0, 0, Direction.NORTH);
         MarsRover marsRover = new MarsRover(initialLocation);
-        marsRover.executeCommandMove();
+        marsRover.executeBatchCommands(move);
         // When
         Location currentLocation = marsRover.getCurrentLocation();
         // Then
@@ -23,7 +26,7 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.SOUTH);
         MarsRover marsRover = new MarsRover(initialLocation);
-        marsRover.executeCommandMove();
+        marsRover.executeBatchCommands(move);
         // When
         Location currentLocation = marsRover.getCurrentLocation();
         //Then
@@ -37,7 +40,7 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.EAST);
         MarsRover marsRover = new MarsRover(initialLocation);
-        marsRover.executeCommandMove();
+        marsRover.executeBatchCommands(move);
         // When
         Location currentLocation = marsRover.getCurrentLocation();
         //Then
@@ -51,7 +54,7 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.WEST);
         MarsRover marsRover = new MarsRover(initialLocation);
-        marsRover.executeCommandMove();
+        marsRover.executeBatchCommands(move);
         // When
         Location currentLocation = marsRover.getCurrentLocation();
         //Then
@@ -65,7 +68,7 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.NORTH);
         MarsRover marsRover = new MarsRover(initialLocation);
-        marsRover.executeCommandLeft();
+        marsRover.executeBatchCommands(left);
         // When
         Location currentLocation = marsRover.getCurrentLocation();
         //Then
@@ -79,7 +82,7 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.SOUTH);
         MarsRover marsRover = new MarsRover(initialLocation);
-        marsRover.executeCommandLeft();
+        marsRover.executeBatchCommands(left);
         // When
         Location currentLocation = marsRover.getCurrentLocation();
         //Then
@@ -93,7 +96,7 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.EAST);
         MarsRover marsRover = new MarsRover(initialLocation);
-        marsRover.executeCommandLeft();
+        marsRover.executeBatchCommands(left);
         // When
         Location currentLocation = marsRover.getCurrentLocation();
         //Then
@@ -107,7 +110,7 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.WEST);
         MarsRover marsRover = new MarsRover(initialLocation);
-        marsRover.executeCommandLeft();
+        marsRover.executeBatchCommands(left);
         // When
         Location currentLocation = marsRover.getCurrentLocation();
         //Then
@@ -121,7 +124,7 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.NORTH);
         MarsRover marsRover = new MarsRover(initialLocation);
-        marsRover.executeCommandRight();
+        marsRover.executeBatchCommands(right);
         // When
         Location currentLocation = marsRover.getCurrentLocation();
         //Then
@@ -135,7 +138,7 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.SOUTH);
         MarsRover marsRover = new MarsRover(initialLocation);
-        marsRover.executeCommandRight();
+        marsRover.executeBatchCommands(right);
         // When
         Location currentLocation = marsRover.getCurrentLocation();
         //Then
@@ -149,7 +152,7 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.EAST);
         MarsRover marsRover = new MarsRover(initialLocation);
-        marsRover.executeCommandRight();
+        marsRover.executeBatchCommands(right);
         // When
         Location currentLocation = marsRover.getCurrentLocation();
         //Then
@@ -163,7 +166,7 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.WEST);
         MarsRover marsRover = new MarsRover(initialLocation);
-        marsRover.executeCommandRight();
+        marsRover.executeBatchCommands(right);
         // When
         Location currentLocation = marsRover.getCurrentLocation();
         //Then
@@ -178,10 +181,7 @@ class MarsRoverTest {
         Location initialLocation = new Location(0, 0, Direction.NORTH);
         MarsRover marsRover = new MarsRover(initialLocation);
         // When
-        marsRover.executeCommandMove();
-        marsRover.executeCommandLeft();
-        marsRover.executeCommandMove();
-        marsRover.executeCommandRight();
+        marsRover.executeBatchCommands(String.format("%s,%s,%s,%s", move, left, move, right));
         Location currentLocation = marsRover.getCurrentLocation();
         // Then
         Assertions.assertEquals(-1, currentLocation.getX());
