@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class MarsRoverTest {
-    private String move = "MOVE";
-    private String left = "LEFT";
-    private String right = "RIGHT";
+    private final String move = "MOVE";
+    private final String left = "LEFT";
+    private final String right = "RIGHT";
 
     @Test
     void should_change_to_location_0_1_N_when_executeCommand_given_0_0_North_and_command_Move() {
