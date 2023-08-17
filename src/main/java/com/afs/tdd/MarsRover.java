@@ -8,7 +8,7 @@ public class MarsRover {
         this.location = location;
     }
 
-    public Location executeCommandMove() {
+    public void executeCommandMove() {
         if(location.getDirection() == Direction.NORTH){
             location.setY(location.getY() + 1);
         }
@@ -21,43 +21,38 @@ public class MarsRover {
         if(location.getDirection() == Direction.WEST){
             location.setX(location.getX() - 1);
         }
-        return location;
     }
-    public Location executeCommandLeftNS() {
+    public void executeCommandLeftNS() {
         if(location.getDirection() == Direction.NORTH){
             location.setDirection(Direction.WEST);
         }
         if(location.getDirection() == Direction.SOUTH){
             location.setDirection(Direction.EAST);
         }
-        return location;
     }
-    public Location executeCommandLeftEW() {
+    public void executeCommandLeftEW() {
         if(location.getDirection() == Direction.EAST){
             location.setDirection(Direction.NORTH);
         }
         if(location.getDirection() == Direction.WEST){
             location.setDirection(Direction.SOUTH);
         }
-        return location;
     }
-    public Location executeCommandRightNS() {
+    public void executeCommandRightNS() {
         if(location.getDirection() == Direction.NORTH){
             location.setDirection(Direction.EAST);
         }
         if(location.getDirection() == Direction.SOUTH){
             location.setDirection(Direction.WEST);
         }
-        return location;
     }
-    public Location executeCommandRightEW() {
+    public void executeCommandRightEW() {
         if(location.getDirection() == Direction.EAST){
             location.setDirection(Direction.SOUTH);
         }
         if(location.getDirection() == Direction.WEST){
             location.setDirection(Direction.NORTH);
         }
-        return location;
     }
 
     public Location getCurrentLocation() {
