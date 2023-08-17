@@ -9,39 +9,66 @@ public class MarsRover {
     }
 
     public void executeCommandMove() {
-        if (location.getDirection() == Direction.NORTH) {
-            location.setY(location.getY() + 1);
-        } else if (location.getDirection() == Direction.SOUTH) {
-            location.setY(location.getY() - 1);
-        } else if (location.getDirection() == Direction.EAST) {
-            location.setX(location.getX() + 1);
-        } else if (location.getDirection() == Direction.WEST) {
-            location.setX(location.getX() - 1);
+        Direction direction = location.getDirection();
+
+        switch (direction) {
+            case NORTH:
+                location.setY(location.getY() + 1);
+                break;
+            case SOUTH:
+                location.setY(location.getY() - 1);
+                break;
+            case EAST:
+                location.setX(location.getX() + 1);
+                break;
+            case WEST:
+                location.setX(location.getX() - 1);
+                break;
         }
     }
 
     public void executeCommandLeft() {
-        if (location.getDirection() == Direction.NORTH) {
-            location.setDirection(Direction.WEST);
-        } else if (location.getDirection() == Direction.SOUTH) {
-            location.setDirection(Direction.EAST);
-        } else if (location.getDirection() == Direction.EAST) {
-            location.setDirection(Direction.NORTH);
-        } else if (location.getDirection() == Direction.WEST) {
-            location.setDirection(Direction.SOUTH);
+        Direction currentDirection = location.getDirection();
+        Direction newDirection = null;
+
+        switch (currentDirection) {
+            case NORTH:
+                newDirection = Direction.WEST;
+                break;
+            case SOUTH:
+                newDirection = Direction.EAST;
+                break;
+            case EAST:
+                newDirection = Direction.NORTH;
+                break;
+            case WEST:
+                newDirection = Direction.SOUTH;
+                break;
         }
+
+        location.setDirection(newDirection);
     }
 
     public void executeCommandRight() {
-        if (location.getDirection() == Direction.NORTH) {
-            location.setDirection(Direction.EAST);
-        } else if (location.getDirection() == Direction.SOUTH) {
-            location.setDirection(Direction.WEST);
-        } else if (location.getDirection() == Direction.EAST) {
-            location.setDirection(Direction.SOUTH);
-        } else if (location.getDirection() == Direction.WEST) {
-            location.setDirection(Direction.NORTH);
+        Direction currentDirection = location.getDirection();
+        Direction newDirection = null;
+
+        switch (currentDirection) {
+            case NORTH:
+                newDirection = Direction.EAST;
+                break;
+            case SOUTH:
+                newDirection = Direction.WEST;
+                break;
+            case EAST:
+                newDirection = Direction.SOUTH;
+                break;
+            case WEST:
+                newDirection = Direction.NORTH;
+                break;
         }
+
+        location.setDirection(newDirection);
     }
 
     public Location getCurrentLocation() {
