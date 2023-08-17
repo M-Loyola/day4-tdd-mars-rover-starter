@@ -121,7 +121,7 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.NORTH);
         MarsRover marsRover = new MarsRover(initialLocation);
-        marsRover.executeCommandRightNS();
+        marsRover.executeCommandRight();
         // When
         Location currentLocation = marsRover.getCurrentLocation();
         //Then
@@ -135,7 +135,7 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.SOUTH);
         MarsRover marsRover = new MarsRover(initialLocation);
-        marsRover.executeCommandRightNS();
+        marsRover.executeCommandRight();
         // When
         Location currentLocation = marsRover.getCurrentLocation();
         //Then
@@ -149,7 +149,7 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.EAST);
         MarsRover marsRover = new MarsRover(initialLocation);
-        marsRover.executeCommandRightEW();
+        marsRover.executeCommandRight();
         // When
         Location currentLocation = marsRover.getCurrentLocation();
         //Then
@@ -163,7 +163,7 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.WEST);
         MarsRover marsRover = new MarsRover(initialLocation);
-        marsRover.executeCommandRightEW();
+        marsRover.executeCommandRight();
         // When
         Location currentLocation = marsRover.getCurrentLocation();
         //Then
@@ -181,7 +181,7 @@ class MarsRoverTest {
         marsRover.executeCommandMove();
         marsRover.executeCommandLeft();
         marsRover.executeCommandMove();
-        marsRover.executeCommandRightEW();
+        marsRover.executeCommandRight();
         Location currentLocation = marsRover.getCurrentLocation();
         // Then
         Assertions.assertEquals(-1, currentLocation.getX());
