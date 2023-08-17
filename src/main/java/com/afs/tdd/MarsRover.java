@@ -6,7 +6,6 @@ import java.util.List;
 public class MarsRover {
 
     private Location location;
-    private List<String> locations;
 
     public MarsRover(Location location) {
         this.location = location;
