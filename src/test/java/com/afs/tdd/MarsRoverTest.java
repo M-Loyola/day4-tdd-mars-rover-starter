@@ -4,19 +4,19 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class MarsRoverTest {
-    Command givenCommand = Command.MOVE;
-    private Location getLocation(Location initialLocation) {
+    Command commandMove = Command.MOVE;
+    Command commandTurnLeft = Command.TURN_LEFT;
+    private Location getCurrentLocation(Location initialLocation, Command givenCommand) {
         MarsRover marsRover = new MarsRover(initialLocation);
         marsRover.executeCommand(givenCommand);
-        Location currentLocation = marsRover.getCurrentLocation();
-        return currentLocation;
+        return marsRover.getCurrentLocation();
     }
     @Test
     void should_change_to_location_0_1_N_when_executeCommand_given_0_0_North_and_command_Move() {
         // Given
         Location initialLocation = new Location(0, 0, Direction.NORTH);
         // When
-        Location currentLocation = getLocation(initialLocation);
+        Location currentLocation = getCurrentLocation(initialLocation,commandMove);
         // Then
         Assertions.assertEquals(0 , currentLocation.getX());
         Assertions.assertEquals(1 , currentLocation.getY());
@@ -28,7 +28,7 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.SOUTH);
         // When
-        Location currentLocation = getLocation(initialLocation);
+        Location currentLocation = getCurrentLocation(initialLocation,commandMove);
         //Then
         Assertions.assertEquals(0 , currentLocation.getX());
         Assertions.assertEquals(-1 , currentLocation.getY());
@@ -39,7 +39,7 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.EAST);
         // When
-        Location currentLocation = getLocation(initialLocation);
+        Location currentLocation = getCurrentLocation(initialLocation,commandMove);
         //Then
         Assertions.assertEquals(1 , currentLocation.getX());
         Assertions.assertEquals(0 , currentLocation.getY());
@@ -50,7 +50,7 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.WEST);
         // When
-        Location currentLocation = getLocation(initialLocation);
+        Location currentLocation = getCurrentLocation(initialLocation,commandMove);
         //Then
         Assertions.assertEquals(-1 , currentLocation.getX());
         Assertions.assertEquals(0 , currentLocation.getY());
@@ -61,9 +61,7 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.NORTH);
         // When
-        MarsRover marsRover = new MarsRover(initialLocation);
-        marsRover.executeCommand(Command.TURN_LEFT);
-        Location currentLocation = marsRover.getCurrentLocation();
+        Location currentLocation = getCurrentLocation(initialLocation,commandTurnLeft);
         //Then
         Assertions.assertEquals(0 , currentLocation.getX());
         Assertions.assertEquals(0 , currentLocation.getY());
