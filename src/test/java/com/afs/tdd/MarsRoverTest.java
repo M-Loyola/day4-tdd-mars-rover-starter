@@ -61,7 +61,9 @@ class MarsRoverTest {
         //Given
         Location initialLocation = new Location(0, 0, Direction.NORTH);
         // When
-        Location currentLocation = getLocation(initialLocation);
+        MarsRover marsRover = new MarsRover(initialLocation);
+        marsRover.executeCommand(Command.TURN_LEFT);
+        Location currentLocation = marsRover.getCurrentLocation();
         //Then
         Assertions.assertEquals(0 , currentLocation.getX());
         Assertions.assertEquals(0 , currentLocation.getY());

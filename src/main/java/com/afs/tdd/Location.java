@@ -20,10 +20,10 @@ public class Location {
     public void setY(int y) {
         this.y = y;
     }
-
+    public void setDirection (Direction direction) {this.direction = direction;}
     private int x;
     private int y;
-    private final Direction direction;
+    private Direction direction;
 
     public Location(int x, int y, Direction direction) {
         this.x = x;
