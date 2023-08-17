@@ -4,15 +4,19 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class MarsRoverTest {
+    Command givenCommand = Command.MOVE;
+    private Location getLocation(Location initialLocation) {
+        MarsRover marsRover = new MarsRover(initialLocation);
+        marsRover.executeCommand(givenCommand);
+        Location currentLocation = marsRover.getCurrentLocation();
+        return currentLocation;
+    }
     @Test
     void should_change_to_location_0_1_N_when_executeCommand_given_0_0_North_and_command_Move() {
         // Given
         Location initialLocation = new Location(0, 0, Direction.NORTH);
-        Command givenCommand = Command.MOVE;
-        MarsRover marsRover = new MarsRover(initialLocation);
         // When
-        marsRover.executeCommand(givenCommand);
-        Location currentLocation = marsRover.getCurrentLocation();
+        Location currentLocation = getLocation(initialLocation);
         // Then
         Assertions.assertEquals(0 , currentLocation.getX());
         Assertions.assertEquals(1 , currentLocation.getY());
@@ -23,11 +27,8 @@ class MarsRoverTest {
     void should_change_to_location_0_negative1_S_when_executeCommand_give_0_0_South_and_command_Move() {
         //Given
         Location initialLocation = new Location(0, 0, Direction.SOUTH);
-        Command givenCommand  = Command.MOVE;
-        MarsRover marsRover = new MarsRover(initialLocation);
-        //When
-        marsRover.executeCommand(givenCommand);
-        Location currentLocation = marsRover.getCurrentLocation();
+        // When
+        Location currentLocation = getLocation(initialLocation);
         //Then
         Assertions.assertEquals(0 , currentLocation.getX());
         Assertions.assertEquals(-1 , currentLocation.getY());
